@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Manage Project Files - 7-Iron Server Documentation</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 7-Iron Server Documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>User Guide for 7-Iron Server</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="..">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../tools">User Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Manage Project Files</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#1-no-synchronization">1. No Synchronization</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#2-vagrant-managed-synced-folders">2. Vagrant Managed Synced Folders</a></li>
+                            
+                                <li><a class="toctree-l3" href="#-sync-types">- Sync types</a></li>
+                            
+                                <li><a class="toctree-l3" href="#-usage-scenarios">- Usage Scenarios</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#3-treating-7-iron-as-a-remote-server">3. Treating 7-Iron as a Remote Server</a></li>
+                            
+                                <li><a class="toctree-l3" href="#-use-secure-copy-to-move-files-between-your-host-and-7-iron-server">- Use Secure Copy to move files between your host and 7-Iron Server</a></li>
+                            
+                                <li><a class="toctree-l3" href="#-use-ides-or-other-software-to-sync-and-deploy-files">- Use IDEs or other Software to Sync and Deploy Files</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../database-mysql">More Q&A - Database/MySQL</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../vagrant">More Q&A - Vagrant</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../drupal">More Q&A - Drupal</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Contributor Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/feature-development">Feature Development Workflow</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/server-specs">Server Specs</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/rake-tasks">Rake Tasks</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/tools">Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Usage Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide">Cookbook Readme</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Appendix</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../appendix/terms-definitions">Terms & Definitions</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Manage Project Files</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1>How to Manage Your Project Files with 7-Iron</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>Your files are most likely part of a project in a VCS repo.  <em>Those files you want deployed to the 7-Iron Vagrant box</em> may or may not include everything in your project repo.</p>
+<p>You may, for example, only want 7-Iron to run your web files.  In this case the files you deploy will only be those you keep in a sub-directory such as <code>docroot</code>.  However, if you want 7-Iron to run your web files and your Behat feature tests, then your deploy files will include both your <code>docroot</code> and your <code>features</code> directory.</p>
+<p>In another scenario you may want to deploy everything to 7-Iron but exclude your <code>.git</code> directory to save on sync time.  </p>
+<p>Consider what files you want to deploy to 7-Iron as we cover ways to manage your project files with 7-Iron.</p>
+<p>Let's cover three ways to manage your project files with 7-Iron.  These include:</p>
+<ol>
+<li>No synchronization</li>
+<li>Vagrant managed synced folders</li>
+<li>Treating 7-Iron as a remote server</li>
+</ol>
+<h2 id="1-no-synchronization">1. No Synchronization</h2>
+<p>By default, 7-Iron starts with no synchronization.</p>
+<p>This is useful if you would like to just test drive 7-Iron, or if you would like to checkout and manage your project code only on the 7-Iron Server and not on your host.</p>
+<p>Use cases include:</p>
+<ul>
+<li>A QA tester needs to check out and run a tagged version of a website</li>
+<li>A Merge Manager needs to review one or more branches of code before approving a pull request</li>
+<li>A automated test system needs to check out and run a series of BDD and Unit tests</li>
+</ul>
+<p>With this method just use 7-Iron from the command line and check out code as you would to any Unix based system.  You can turn on SSH key forwarding if you want to forward your SSH key from your host to 7-Iron.</p>
+<h2 id="2-vagrant-managed-synced-folders">2. Vagrant Managed Synced Folders</h2>
+<blockquote>
+<p>Synced folders enable Vagrant to sync a folder on the host machine to the guest machine, allowing you to continue working on your project's files on your host machine, but use the resources in the guest machine to compile or run your project.  -- <a href="https://docs.vagrantup.com/v2/synced-folders/index.html">VagrantUp.com</a></p>
+</blockquote>
+<p>The documentation section on the Vagrant website covers <a href="https://docs.vagrantup.com/v2/synced-folders/index.html">Synced Folders</a> in detail.  </p>
+<h3 id="-sync-types">- Sync types</h3>
+<p>The 7-Iron Vagrant file has entries to use any of these three types of synced folder support:</p>
+<ul>
+<li><a href="https://docs.vagrantup.com/v2/synced-folders/nfs.html">NFS</a></li>
+<li><a href="https://docs.vagrantup.com/v2/synced-folders/rsync.html">Rsync</a></li>
+<li><a href="https://docs.vagrantup.com/v2/synced-folders/virtualbox.html">Virtual Box</a></li>
+</ul>
+<p>I recommend using Rsync for large projects, and NFS for most projects.  Please read the documentation in the links above for the type you'd like to use.</p>
+<p>Then, edit this section in the Vagrant file to uncomment and use your desired sync type:</p>
+<pre><code># Uncomment the line below to use the default synced folder type (Virtual box).
+# config.vm.synced_folder sync_source, sync_target
+
+# Unccoment the line below to use the nfs synced folder type
+# config.vm.synced_folder sync_source , sync_target, type: 'nfs'
+
+# Uncomment the three lines below to use the rsync synced folder type
+# config.vm.synced_folder sync_source, sync_target, type: &quot;rsync&quot;,
+#   rsync__exclude: &quot;.git/&quot;,
+#   rsync__auto: true
+</code></pre>
+
+<p>See also:</p>
+<ul>
+<li><a href="../vagrant#how-do-i-set-up-nfs-on-my-mac">How do I set up NFS on my Mac?</a></li>
+</ul>
+<h3 id="-usage-scenarios">- Usage Scenarios</h3>
+<p>The following two scenarios illustrate ways to use synced folders with 7-Iron.</p>
+<h4 id="-scenario-one-just-serve-web-pages">-- Scenario One - Just serve web pages:</h4>
+<p>By default, when a sync type is enabled,  the 7-Iron Vagrant file will sync the directory it is in to:</p>
+<p><code>/home/vagrant/workspace/docroot</code></p>
+<p>To use 7-Iron to serve your project's webpages, put this Vagrant file in your project's web root directory.</p>
+<p>Hint: where index.php or index.html is located.</p>
+<h4 id="-scenario-two-run-tests-and-serve-web-pages">-- Scenario Two - Run tests and serve web pages.</h4>
+<p>Given your project's web docroot is one level down like this:</p>
+<pre><code>/tests
+/docroot
+/docroot/index.php
+/docroot/robots.txt
+</code></pre>
+
+<p>And you put the 7-Iron Vagrantfile at the top level of your project like this:</p>
+<pre><code>/Vagrantfile
+/tests
+/docroot
+</code></pre>
+
+<p>And you uncomment this line <code>#sync_target = "/home/vagrant/workspace"</code> in the 7-Iron Vagrant file.</p>
+<p>Then, 7-Iron will sync your project directories like this:</p>
+<pre><code>/home/vagrant/workspace/tests
+/home/vagrant/workspace/docroot/index.php
+/home/vagrant/workspace/docroot/robots.txt
+</code></pre>
+
+<p>And you may run your tests on 7-Iron as well as serve your web pages.</p>
+<p>Tip: Add <code>.vagrant</code> to your <code>.gitignore</code> file to keep from committing the directory.</p>
+<h2 id="3-treating-7-iron-as-a-remote-server">3. Treating 7-Iron as a Remote Server</h2>
+<p>You can connect to 7-Iron via SSH on port 22 with the user name: <code>vagrant</code> and the password <code>vagrant</code>.</p>
+<h3 id="-use-secure-copy-to-move-files-between-your-host-and-7-iron-server">- Use Secure Copy to move files between your host and 7-Iron Server</h3>
+<p>From your host command line you can use <a href="http://en.wikipedia.org/wiki/Secure_copy">SCP</a> to move files from your host to 7-Iron, and from 7-Iron to your host.</p>
+<p>Below are two examples:</p>
+<ol>
+<li>To copy all files from a <code>wesbite</code> directory your host to the <code>docroot</code> directory on 7-Iron, run the following command:
+    <code>scp -P 2222 -r website vagrant@localhost:./workspace/docroot</code></li>
+<li>To copy all files back, this time from the <code>docroot</code> on 7-Iron to your host <code>website</code> directory, run:
+    <code>scp -P 2222 -r vagrant@localhost:./workspace/docroot website</code></li>
+</ol>
+<p><strong>Note:</strong> SCP runs a copy command and not a sync.  Files will be overwritten and dead wood files will not be cleaned up.</p>
+<h3 id="-use-ides-or-other-software-to-sync-and-deploy-files">- Use IDEs or other Software to Sync and Deploy Files</h3>
+<p>You can also use an SFTP tool <sup id="fnref:sftp-tool"><a class="footnote-ref" href="#fn:sftp-tool" rel="footnote">1</a></sup> or you IDE to develop your files locally and then sync/deploy them as needed to 7-Iron.</p>
+<p>You can connect to 7-Iron via SFTP on port 22 with the user name: <code>vagrant</code> and the password <code>vagrant</code>.</p>
+<p>If for example, you use the PHPStorm IDE, you can <a href="https://www.jetbrains.com/phpstorm/help/create-new-project-add-remote-server.html">add 7-Iron as a remote server</a> , then <a href="https://www.jetbrains.com/phpstorm/help/working-with-web-servers-copying-files.html">copy your files to 7-Iron</a>, and <a href="https://www.jetbrains.com/phpstorm/help/configuring-synchronization-with-a-web-server.html">keep them in sync</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:sftp-tool">
+<p>Like FileZilla -The free FTP solution: https://filezilla-project.org/&#160;<a class="footnote-backref" href="#fnref:sftp-tool" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../questions-answers" class="btn btn-neutral float-right" title="Questions & Answers"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../tools" class="btn btn-neutral" title="User Tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../tools" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../questions-answers" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

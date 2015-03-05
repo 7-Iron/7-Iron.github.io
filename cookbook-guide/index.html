@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cookbook Readme - 7-Iron Server Documentation</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 7-Iron Server Documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>User Guide for 7-Iron Server</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/tools">User Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/project-files">Manage Project Files</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/database-mysql">More Q&A - Database/MySQL</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/vagrant">More Q&A - Vagrant</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../user-guide/drupal">More Q&A - Drupal</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Contributor Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide/feature-development">Feature Development Workflow</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide/server-specs">Server Specs</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide/rake-tasks">Rake Tasks</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide/tools">Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../contributor-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Usage Guide</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Cookbook Readme</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#7-iron-server">7-Iron Server</a></li>
+                            
+                                <li><a class="toctree-l3" href="#for-7-iron-vagrant-box-users">For 7-Iron Vagrant Box Users</a></li>
+                            
+                                <li><a class="toctree-l3" href="#for-7-iron-cookbook-users">For 7-Iron Cookbook Users</a></li>
+                            
+                                <li><a class="toctree-l3" href="#for-7-iron-contributors">For 7-Iron Contributors</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#software-included-in-7-iron">Software Included in 7-Iron</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#requirements">Requirements</a></li>
+                            
+                                <li><a class="toctree-l3" href="#platform">Platform:</a></li>
+                            
+                                <li><a class="toctree-l3" href="#cookbooks">Cookbooks:</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#attributes">Attributes</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#recipes">Recipes</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironapache">7-Iron::apache</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironcomposer">7-Iron::composer</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-irondefault">7-Iron::default</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-irondrush_modules">7-Iron::drush_modules</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironlogs">7-Iron::logs</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironmailcatcher">7-Iron::mailcatcher</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironphp">7-Iron::php</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironsites">7-Iron::sites</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironsystem">7-Iron::system</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-ironxhprof">7-Iron::xhprof</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#usage">Usage</a></li>
+                            
+                                <li><a class="toctree-l3" href="#add-7-iron-to-your-own-cookbook">Add 7-Iron to your own cookbook</a></li>
+                            
+                                <li><a class="toctree-l3" href="#add-7-iron-to-the-run-list-in-a-vagrantfile">Add 7-Iron to the run list in a Vagrantfile</a></li>
+                            
+                                <li><a class="toctree-l3" href="#add-7-iron-to-your-chef-server">Add 7-Iron to your Chef Server</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#thanks">Thanks</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#license">License</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Appendix</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../appendix/terms-definitions">Terms & Definitions</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href=".."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    <li>Cookbook Readme</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1 id="7-iron-server">7-Iron Server</h1>
+<p><em>Your "Go-to" Vagrant Box for PHP and Drupal Development</em></p>
+<p>7-Iron is:</p>
+<ol>
+<li>A LAMP Server in a Vagrant Box for PHP and Drupal developers</li>
+<li>A Chef Cookbook and Packer template to build your own custom LAMP server</li>
+<li>Covered by over 100 automated tests to ensure your system will work as expected</li>
+</ol>
+<h2 id="for-7-iron-vagrant-box-users">For 7-Iron Vagrant Box Users</h2>
+<p><strong>You do not need to clone or build anything from the 7-Iron repository.</strong></p>
+<p>Simply run these two commands to start using 7-Iron:</p>
+<pre><code>vagrant init seanbuscay/7-Iron
+vagrant up
+</code></pre>
+
+<p>Then visit: <a href="http://7-iron.github.io/user-guide/#quickstart">User Guide: Quickstart</a></p>
+<h2 id="for-7-iron-cookbook-users">For 7-Iron Cookbook Users</h2>
+<p>This README provides detailed documentation about the 7-Iron Cookbook, including its <a href="#attributes">Attributes</a>, <a href="#recipes">Recipes</a>, and <a href="#usage">Usage</a>.</p>
+<p>For further documentation visit: <a href="http://7-iron.github.io/">http://7-iron.github.io/</a></p>
+<h2 id="for-7-iron-contributors">For 7-Iron Contributors</h2>
+<p>Visit: <a href="http://7-iron.github.io/contributor-guide/">Contributor Guide Overview</a></p>
+<h1 id="software-included-in-7-iron">Software Included in 7-Iron</h1>
+<p>The following software is included with the default 7-Iron build:</p>
+<ul>
+<li>Ubuntu-14.04 Linux</li>
+<li>Apache</li>
+<li>PHP (optmized for Drupal development)</li>
+<li>Git</li>
+<li>Mysql</li>
+<li>Mailcatcher</li>
+<li>Pimp My Log</li>
+<li>Xdebug</li>
+<li>Xhprof</li>
+<li>Graphviz</li>
+<li>Composer</li>
+<li>Drush<ul>
+<li>Coder</li>
+<li>Registry rebuild</li>
+</ul>
+</li>
+<li>PHPUnit</li>
+<li>PHP Code Sniffer</li>
+<li>PHPspec</li>
+<li>Behat</li>
+<li>Mink</li>
+<li>Ruby</li>
+<li>Gems<ul>
+<li>Bundler</li>
+<li>Zen-Grids</li>
+<li>Sass</li>
+<li>Compass</li>
+<li>Jekyll</li>
+</ul>
+</li>
+</ul>
+<h1 id="requirements">Requirements</h1>
+<h2 id="platform">Platform:</h2>
+<ul>
+<li>Ubuntu (&gt;= 14.04)</li>
+</ul>
+<h2 id="cookbooks">Cookbooks:</h2>
+<ul>
+<li>apt (~&gt; 2.5.3)</li>
+<li>build-essential</li>
+<li>apache2 (~&gt; 2.0.0)</li>
+<li>hostsfile (~&gt; 2.4.5)</li>
+<li>git (~&gt; 4.0.2)</li>
+<li>mysql (= 5.5.0)</li>
+<li>composer (~&gt; 1.0.5)</li>
+<li>drush (~&gt; 0.9.0)</li>
+<li>php (~&gt; 1.4.6)</li>
+<li>curl (~&gt; 2.0.0)</li>
+<li>xdebug (~&gt; 1.0.0)</li>
+<li>ruby (~&gt; 0.9.3)</li>
+<li>gem_installer (~&gt; 0.1.2)</li>
+<li>bash (~&gt; 0.1.2)</li>
+</ul>
+<h1 id="attributes">Attributes</h1>
+<ul>
+<li><code>node['mysql']['server_root_password']</code> - Mysql root user password.<ul>
+<li>See: https://github.com/opscode-cookbooks/mysql#attributes</li>
+<li>Set mysql server defaults using the same format.</li>
+<li><strong>Do not deploy a public mysql server with root as the default password.</strong>.  <li> Defaults to <code>"root"</code></li>
+</ul>
+</li>
+<li><code>node['apache']['user']</code> - Apache user name<ul>
+<li>See: https://github.com/onehealth-cookbooks/apache2#attributes</li>
+<li>Set apache server defaults using the same format.  <li> Defaults to <code>"vagrant"</code></li>
+</ul>
+</li>
+<li><code>node['apache']['group']</code> - Apache user group<ul>
+<li>See: https://github.com/onehealth-cookbooks/apache2#attributes</li>
+<li>Set apache server defaults using the same format.  <li> Defaults to <code>"vagrant"</code></li>
+</ul>
+</li>
+<li><code>node['apache']['docroot_dir']</code> - Location for docroot.<ul>
+<li>Set to work with Ubuntu's change to using a docroot at /var/www/html.  <li> Defaults to <code>"/var/www/html"</code></li>
+</ul>
+</li>
+<li><code>node['apache']['default_site_enabled']</code> - Setting to enable or disable a default site for Apache<ul>
+<li>See: https://github.com/onehealth-cookbooks/apache2#attributes.  <li> Defaults to <code>"true"</code></li>
+</ul>
+</li>
+<li><code>node['composer']['install_globally']</code> - Setting to install composer globally.<ul>
+<li>See: https://github.com/escapestudios-cookbooks/composer#attributes</li>
+<li>See: https://getcomposer.org/doc/00-intro.md#globally.  <li> Defaults to <code>"true"</code></li>
+</ul>
+</li>
+<li><code>node['composer']['install_dir']</code> - Change location because Kitchen creates a symlink on /usr/local/bin/composer<ul>
+<li>See: https://github.com/escapestudios-cookbooks/composer#attributes</li>
+<li>See: https://getcomposer.org/doc/00-intro.md#globally.  <li> Defaults to <code>"/usr/local/sbin"</code></li>
+</ul>
+</li>
+<li><code>node['build_essential']['compile_time']</code> - Set build essentials to install at compile time<ul>
+<li>Early incase other recipes need it.  <li> Defaults to <code>"true"</code></li>
+</ul>
+</li>
+<li><code>node['xdebug']['config_file']</code> - Xdebug config file<ul>
+<li>See: https://community.opscode.com/cookbooks/xdebug.  <li> Defaults to <code>"/etc/php5/apache2/conf.d/xdebug.ini"</code></li>
+</ul>
+</li>
+<li><code>node['xdebug']['directives']</code> - Xdebug directives<ul>
+<li>See: https://community.opscode.com/cookbooks/xdebug</li>
+<li>Set xdebug defaults using the same format.</li>
+<li>Defaults to <pre>{
+'remote_enable' =&gt; 1,
+'remote_connect_back' =&gt; 1,
+'remote_port' =&gt; 9000,
+'remote_handler' =&gt; 'dbgp',
+'profiler_enable' =&gt; 0,
+'profiler_enable_trigger' =&gt; 1,
+'show_exception_trace' =&gt; 0
+}</pre>.</li>
+</ul>
+</li>
+<li><code>node['7-Iron']['php_packages']</code> - A hash of PHP Packes to install.<ul>
+<li>Used by the 7-Iron PHP recipe.</li>
+<li>Edit to add or remove packages before build or converge.</li>
+<li>Defaults to <pre>[
+'php5-gd',
+'php5-mysql',
+'php5-curl',
+'php5-json',
+'php5-xsl',
+'php5-mcrypt'
+]</pre>.</li>
+</ul>
+</li>
+<li><code>node['7-Iron']['system_packages']</code> - A hash of Linux Packes to install.<ul>
+<li>Used by the 7-Iron System recipe.</li>
+<li>Edit to add or remove packages before build or converge.</li>
+<li>Defaults to <pre>[
+'wget',
+'lynx',
+'rsync',
+'nfs-common',
+'nodejs',
+'libsqlite3-dev'
+]</pre>.</li>
+</ul>
+</li>
+<li><code>node['gem_installer']['gems']</code> - A hash of gems to install.  Replace nil with a version string as needed.<ul>
+<li>See: https://supermarket.chef.io/cookbooks/gem_installer#readme</li>
+<li>Defaults to <pre>{
+'bundler' =&gt; nil,
+'sass' =&gt; nil,
+'compass' =&gt; nil,
+'zen-grids' =&gt; nil,
+'jekyll' =&gt; nil,
+'serverspec' =&gt; nil,
+'mailcatcher' =&gt; '0.6.1'
+}</pre>.</li>
+</ul>
+</li>
+</ul>
+<h1 id="recipes">Recipes</h1>
+<ul>
+<li><a href="#7-Ironapache">7-Iron::apache</a> - Configure Apache with mod_rewrite and ssl support, after Apache install.</li>
+<li><a href="#7-Ironcomposer">7-Iron::composer</a> - Configure Composer for the Vagrant user after install.</li>
+<li><a href="#7-Irondefault">7-Iron::default</a> - Install and configure a LAMP stack for php (Drupal-centric) web development.</li>
+<li><a href="#7-Irondrush_modules">7-Iron::drush_modules</a> - Install drush modules.</li>
+<li><a href="#7-Ironlogs">7-Iron::logs</a> - Install and configure the "PimpMyLog" app to read Apache amd PHP logs.</li>
+<li><a href="#7-Ironmailcatcher">7-Iron::mailcatcher</a> - Configure PHP to use mailcatcher to capture &amp; read emails during development.</li>
+<li><a href="#7-Ironphp">7-Iron::php</a> - Configure PHP with suport for Drupal development, after PHP install.</li>
+<li><a href="#7-Ironsites">7-Iron::sites</a> - Set up doc root, host file entries, and Vhost configs for the 7-Iron application sites.</li>
+<li><a href="#7-Ironsystem">7-Iron::system</a> - Install &amp; configure miscellaneous system components, directories &amp; permissions.</li>
+<li><a href="#7-Ironxhprof">7-Iron::xhprof</a> - Install and configure xhprof.</li>
+</ul>
+<h2 id="7-ironapache">7-Iron::apache</h2>
+<p>Configure Apache with mod_rewrite and ssl support, after Apache install.</p>
+<ul>
+<li>Run after apache2 cookbook recipes.</li>
+<li>Generate a selfsigned ssl certificate with snake oil.</li>
+<li>Add vagrant user to the www-data group.</li>
+</ul>
+<h2 id="7-ironcomposer">7-Iron::composer</h2>
+<p>Configure Composer for the Vagrant user after install.</p>
+<ul>
+<li>Run composer.json</li>
+<li>Set path variables</li>
+<li>Run after composer cookbook recipe</li>
+<li>Uses the cookbook file <code>composer.json</code> which contains: <pre>
+"require": {
+  "drush/drush": "6.<em>",
+  "behat/behat": "~3.0.6",
+  "behat/mink": "~1.6",
+  "behat/mink-extension": "</em>",
+  "behat/mink-goutte-driver": "<em>",
+  "phpunit/phpunit": "4.4.</em>",
+  "squizlabs/php_codesniffer": "2.*",
+  "phpspec/phpspec": "~2.0"
+}</pre></li>
+</ul>
+<h2 id="7-irondefault">7-Iron::default</h2>
+<p>Install and configure a LAMP stack for php (Drupal-centric) web development.</p>
+<p><strong>7-Iron is an application cookbook with one default recipe</strong> to serve as the
+application run list.</p>
+<p>Here is the default recipe run list:</p>
+<pre><code class="ruby">include_recipe 'apt'                        # 7-Iron System Test
+include_recipe 'build-essential'            # 7-Iron System Test
+include_recipe 'curl'                       # 7-Iron System Test
+include_recipe '7-Iron::system'             # 7-Iron System Test
+include_recipe 'git'                        # 7-Iron Git Test
+include_recipe 'apache2'                    # 7-Iron Apache Test
+include_recipe 'apache2::mod_rewrite'       # 7-Iron Apache Test
+include_recipe 'apache2::mod_ssl'           # 7-Iron Apache Test
+include_recipe '7-Iron::apache'             # 7-Iron Apache Test
+include_recipe 'php'                        # 7-Iron Apache Test
+include_recipe 'apache2::mod_php5'          # 7-Iron PHP Test
+include_recipe '7-Iron::php'                # 7-Iron PHP Test
+include_recipe '7-Iron::sites'              # 7-Iron Sites Test
+include_recipe 'ruby'                       # 7-Iron Ruby and GEMS Test
+include_recipe 'gem_installer'              # 7-Iron Ruby and GEMS Test
+include_recipe 'composer'                   # 7-Iron Composer Test
+include_recipe '7-Iron::composer'           # 7-Iron Composer Test
+include_recipe '7-Iron::logs'               # 7-Iron Logs Test
+include_recipe 'mysql::server'              # 7-Iron MYSQL Test
+include_recipe '7-Iron::mailcatcher'        # 7-Iron Mailcatcher Test
+include_recipe '7-Iron::drush_modules'      # 7-Iron Drush Modules Test
+include_recipe 'xdebug'                     # 7-Iron Xdebug Test
+include_recipe '7-Iron::xhprof'             # 7-Iron Xhprof Test
+</code></pre>
+
+<p>Note:</p>
+<ol>
+<li>The comment by each recipe identifies the test which covers it.</li>
+<li>Recipes run <strong>in the order they are listed</strong>.</li>
+<li>Recipes with the prefix <code>7-Iron::</code> are recipes provided specifically by the
+   7-Iron cookbook.</li>
+<li>Cookbook recipes <strong>must be added to this list in order to run</strong>.</li>
+<li>When possible, do not call recipes from other wrapper type recipes.<ul>
+<li>Instead call library type recipes in the run list and change attribute
+settings for customization.</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-irondrush_modules">7-Iron::drush_modules</h2>
+<p>Install drush modules.</p>
+<ul>
+<li>coder-7.x-2.4</li>
+<li>registry_rebuild</li>
+</ul>
+<h2 id="7-ironlogs">7-Iron::logs</h2>
+<p>Install and configure the "PimpMyLog" app to read Apache amd PHP logs.</p>
+<ul>
+<li>Uses the cookbook file: <code>logs.conf.php</code></li>
+</ul>
+<h2 id="7-ironmailcatcher">7-Iron::mailcatcher</h2>
+<p>Configure PHP to use mailcatcher to capture &amp; read emails during development.</p>
+<ul>
+<li>Add a bash profile entry to start mailcatcher on every login</li>
+<li>Uses the cookbook template <code>mailcatcher.ini.erb</code></li>
+<li>Uses the cookbook files <code>email_test.php</code> which let's us test email sent from
+  mail function.</li>
+</ul>
+<h2 id="7-ironphp">7-Iron::php</h2>
+<p>Configure PHP with suport for Drupal development, after PHP install.</p>
+<ul>
+<li>Install additonal PHP packages</li>
+<li>Install pear Console_Table</li>
+<li>Runs after the php cookbook</li>
+<li>Uses the cookbook templates:<ul>
+<li><code>php.ini.erb</code></li>
+<li><code>php_cli.ini.erb</code></li>
+</ul>
+</li>
+<li>Uses the cookbook file <code>files/default/info.php</code> which contains <code>phpinfo();</code></li>
+</ul>
+<h2 id="7-ironsites">7-Iron::sites</h2>
+<p>Set up doc root, host file entries, and Vhost configs for the 7-Iron application sites.</p>
+<ul>
+<li>Add sites:<ul>
+<li>7-Iron.dev The url for the site being developed.</li>
+<li>7-Iron.start The url for the 7-Iron start page.</li>
+</ul>
+</li>
+<li>Uses the hostsfile cookbook.</li>
+<li>Uses the cookbook files:<ul>
+<li><code>index.start.html</code></li>
+<li><code>index.dev.html</code></li>
+</ul>
+</li>
+<li>Uses the template: <code>site_aliases.conf.erb</code></li>
+</ul>
+<h2 id="7-ironsystem">7-Iron::system</h2>
+<p>Install &amp; configure miscellaneous system components, directories &amp; permissions.</p>
+<p>See the <a href="#attributes">attribute</a> <code>node['7-Iron']['system_packages']</code> for the list of system packages this recipe installs.</p>
+<h2 id="7-ironxhprof">7-Iron::xhprof</h2>
+<p>Install and configure xhprof.</p>
+<ul>
+<li>Install pear xhprof</li>
+<li>Install graphviz</li>
+<li>Uses the cookbook templates<ul>
+<li><code>xhprof.ini.erb</code></li>
+<li><code>xhprof.conf.erb</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="usage">Usage</h1>
+<p>Below are a few ways to use the 7-Iron Cookbook if you don't want to use the pre-built 7-Iron Server.</p>
+<h2 id="add-7-iron-to-your-own-cookbook">Add 7-Iron to your own cookbook</h2>
+<ol>
+<li>
+<p>In the <code>metadata.rb</code> of your cookbook declare a dependency on the 7-Iron Cookbook and any framework cookbook the application may need.  Add the line below:</p>
+<p><code>depends '7-Iron'</code></p>
+</li>
+<li>
+<p>Add a copy of the 7-Iron Cookbook to your cookbooks path, or if you use Berkshelf (recommended) then add the following entry to your Berksfile.</p>
+<p><code>cookbook '7-Iron', git: 'git://github.com/seanbuscay/7-Iron.git'</code></p>
+</li>
+<li>
+<p>Add the the 7-Iron default recipe to your run list (or just the recipes you want to use).</p>
+<p><code>include_recipe '7-Iron::default'</code></p>
+</li>
+<li>
+<p>Override any attributes found in 7-Iron's <code>attributes/default.rb</code> file using your own attributes file.</p>
+</li>
+</ol>
+<h2 id="add-7-iron-to-the-run-list-in-a-vagrantfile">Add 7-Iron to the run list in a Vagrantfile</h2>
+<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.provision &quot;chef_solo&quot; do |chef|
+    chef.add_recipe &quot;7-Iron&quot;
+  end
+end
+</code></pre>
+
+<p>See: http://docs.vagrantup.com/v2/provisioning/chef_solo.html for further details and configuration options.</p>
+<h2 id="add-7-iron-to-your-chef-server">Add 7-Iron to your Chef Server</h2>
+<p><strong>A.</strong> Download and extract the 7-Iron Cookbook to your chef-repo/cookbooks directory</p>
+<p><em>OR</em> (If you have Berkshelf installed.)</p>
+<p><strong>B.</strong> Download and extract 7-Iron to a local directory and run <code>berks vendor path_to_output</code> .  This will download 7-Iron and all its dependent cookbooks to your output path.  Then put the output into your chef-repo/cookbooks directory.</p>
+<ol>
+<li>Upload 7-Iron to your chef-server using <code>knife cookbook upload -a</code></li>
+<li>Run the chef-client on your client node using chef-client</li>
+</ol>
+<p>See: https://www.digitalocean.com/community/tutorials/how-to-create-simple-chef-cookbooks-to-manage-infrastructure-on-ubuntu for further detail.</p>
+<h1 id="thanks">Thanks</h1>
+<p>Most of this code is modeled after or directly re-used from a number of sources all over the net.</p>
+<p>Thank you to all who share their recipes, code, and knowledge on the web.</p>
+<p>I especially want to thank and acknowledge these projects and sources:</p>
+<ul>
+<li><a href="https://www.drupal.org/project/vdd">Vagrant Drupal Development</a><ul>
+<li>This project was my source cookbook for many previous Chef vagrant projects.</li>
+<li>VDD is a great contribution for the Drupal community from Dmytro Danylevskyi, Eric DenBraber, and <a href="https://www.drupal.org/node/2008018/committers">all</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/hashbangcode/vlad">Vlad - Vagrant LAMP Ansible Drupal</a><ul>
+<li>A best in class Vagrant development environment for Drupal projects.</li>
+<li>With really <a href="http://vlad-docs.readthedocs.org/en/latest/">helpful documentation</a>.</li>
+</ul>
+</li>
+<li><a href="http://tcotav.github.io/chefdk_getting_started.html">The Official Unofficial Getting Started with ChefDK Guide</a> by James Francis<ul>
+<li>Thank you James for demystifying the fairly undocumented development workflow with ChefDK.</li>
+</ul>
+</li>
+<li><a href="https://github.com/chef/chef-dk">Chef Development Kit</a> and its bundled tools<ul>
+<li>Chef</li>
+<li>Berkshelf<ul>
+<li>You make cookbook management so much easier!</li>
+</ul>
+</li>
+<li>Test Kitchen<ul>
+<li>Thank you for <code>kitchen converge</code> !!!</li>
+</ul>
+</li>
+<li>Foodcritic</li>
+</ul>
+</li>
+<li><a href="http://serverspec.org/">Serverspec</a><ul>
+<li>TDD-based server development saves me sooo much time.</li>
+</ul>
+</li>
+</ul>
+<h1 id="license">License</h1>
+<p><pre>
+Copyright 2015 Sean P. Buscay</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at</p>
+<pre><code> http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+<p>Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ </pre></p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="questions-answers" class="btn btn-neutral float-right" title="Questions & Answers"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../contributor-guide/questions-answers" class="btn btn-neutral" title="Questions & Answers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../contributor-guide/questions-answers" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="questions-answers" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

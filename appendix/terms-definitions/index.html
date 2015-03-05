@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Terms & Definitions - 7-Iron Server Documentation</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 7-Iron Server Documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>User Guide for 7-Iron Server</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/tools">User Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/project-files">Manage Project Files</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/database-mysql">More Q&A - Database/MySQL</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/vagrant">More Q&A - Vagrant</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/drupal">More Q&A - Drupal</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Contributor Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/feature-development">Feature Development Workflow</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/server-specs">Server Specs</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/rake-tasks">Rake Tasks</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/tools">Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../contributor-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Usage Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide">Cookbook Readme</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Appendix</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Terms & Definitions</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#chef">Chef</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#chef-recipes-cookbooks">Chef Recipes &amp; Cookbooks</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#application-cookbooks">Application Cookbooks</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#vagrant">Vagrant</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#boxes">Boxes</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#7-iron-cookbook">7-Iron Cookbook</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#7-iron-server">7-Iron Server</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Terms & Definitions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1>Terms & Definitions</h1>
+
+<h4 id="chef">Chef</h4>
+<dl>
+<dd>
+<p>A systems and infrastructure automation framework that makes it easy to deploy servers and applications.</p>
+<p>Documentation Homepage: <a href="http://docs.chef.io/">Chef</a></p>
+</dd>
+</dl>
+<h4 id="chef-recipes-cookbooks">Chef Recipes &amp; Cookbooks</h4>
+<dl>
+<dd>
+<p>Chef recipes are where you specify how Chef should run server apps like Apache and MySQL and how they should be configured. Such recipes describe a set of resources which are supposed to be in a specific condition: packages to install, services to run, files to write. Chef will make certain that every resource is accurately set up and corrects any resource which isn’t in the right condition. -- From: <a href="http://www.acceptic.com/blog/chef-how-to-cook-it-right.html">Acceptic.com</a></p>
+<p>Chef recipes can be grouped together into cookbooks for ease of management.  Recipes and Cookbooks can be mixed together to form new cookbooks.  </p>
+</dd>
+</dl>
+<h4 id="application-cookbooks">Application Cookbooks</h4>
+<dl>
+<dd>
+<p>One of several emerging Chef Cookbook design patterns.  These patterns have overlapping attributes which has made it difficult for the Chef community to agree upon exact definitions for each pattern.</p>
+<p>Currently, I classify a cookbook as an application cookbook when the cookbook:</p>
+<ul>
+<li>Represents a whole node to be installed/managed</li>
+<li>Is very specific, not likely to be reused due to its focus on managing a complete system</li>
+<li>Combines a set of library cookbooks<sup id="fnref:library-cookbooks"><a class="footnote-ref" href="#fn:library-cookbooks" rel="footnote">1</a></sup> into a coherent whole</li>
+<li>Uses strict versioning of dependencies (e.g. "= 1.0.0"), including transitive ones</li>
+</ul>
+<p>From: https://github.com/berkshelf/berkshelf/issues/535#issuecomment-18327975</p>
+</dd>
+</dl>
+<h4 id="vagrant">Vagrant</h4>
+<dl>
+<dd>
+<p>Computer software that makes it really easy to work with virtual machines.</p>
+<p>The business case involves saved time, a very low barrier to entry and the ability to give the exact same environment to somebody else. -- From: <a href="http://24ways.org/2014/what-is-vagrant-and-why-should-i-care/">24ways.org</a></p>
+<p>Documentation Homepage: <a href="https://docs.vagrantup.com/v2/">Vagrant</a></p>
+</dd>
+</dl>
+<h4 id="boxes">Boxes</h4>
+<dl>
+<dd>
+<p>Boxes are the package format for Vagrant environments.</p>
+<p>A box can be used by anyone on any platform that Vagrant supports to bring up an identical working environment. -- From: <a href="https://docs.vagrantup.com/v2/boxes.html">VagrantUp.com</a></p>
+</dd>
+</dl>
+<h4 id="7-iron-cookbook">7-Iron Cookbook</h4>
+<dl>
+<dd>
+<p>The 7-Iron Cookbook is an application cookbook which describes for Chef how it should provision the 7-Iron Server software.</p>
+<p>For this use case, Chef deploys the software to a Vagrant box which then becomes the 7-Iron Server.</p>
+</dd>
+</dl>
+<h4 id="7-iron-server">7-Iron Server</h4>
+<dl>
+<dd>
+<p>The 7-Iron Server is a <a href="#vagrant">Vagrant</a> <a href="#boxes">Box</a> with a LAMP stack and environment for PHP and Drupal developers.</p>
+<p>The 7-Iron Server is built using <a href="#chef">Chef</a> <a href="#chef-recipes-cookbooks">recipes</a> from the 7-Iron <a href="#application-cookbooks">Application Cookbook</a>.</p>
+</dd>
+</dl>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:library-cookbooks">
+<p>See: https://github.com/berkshelf/berkshelf/issues/535#issuecomment-18327975&#160;<a class="footnote-backref" href="#fnref:library-cookbooks" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../cookbook-guide/questions-answers" class="btn btn-neutral" title="Questions & Answers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../../cookbook-guide/questions-answers" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

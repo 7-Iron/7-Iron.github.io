@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feature Development Workflow - 7-Iron Server Documentation</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 7-Iron Server Documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>User Guide for 7-Iron Server</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/tools">User Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/project-files">Manage Project Files</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/database-mysql">More Q&A - Database/MySQL</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/vagrant">More Q&A - Vagrant</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/drupal">More Q&A - Drupal</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Contributor Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="..">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Feature Development Workflow</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#workflow">Workflow</a></li>
+                            
+                                <li><a class="toctree-l3" href="#1-write-feature-tests">1. Write feature tests</a></li>
+                            
+                                <li><a class="toctree-l3" href="#2-clean-up-old-work">2. Clean up old work</a></li>
+                            
+                                <li><a class="toctree-l3" href="#3-create-a-test-box-and-provision-it-with-our-cookbook">3. Create a test box and provision it with our cookbook</a></li>
+                            
+                                <li><a class="toctree-l3" href="#4-run-all-tests-on-the-box">4. Run all tests on the box</a></li>
+                            
+                                <li><a class="toctree-l3" href="#5-use-community-cookbook-recipes-or-writeedit-our-own-in-order-to-add-functionality-which-meet-our-requirements">5. Use community cookbook recipes or write/edit our own in order to add functionality which meet our requirements</a></li>
+                            
+                                <li><a class="toctree-l3" href="#6-re-provision">6. Re-provision</a></li>
+                            
+                                <li><a class="toctree-l3" href="#7-repeat-4-5-and-6-committing-iterative-changes-as-needed-until-complete">7. Repeat 4, 5, and 6 (committing iterative changes as needed) until complete</a></li>
+                            
+                                <li><a class="toctree-l3" href="#8-test-with-kitchen-test">8. Test with Kitchen Test</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../server-specs">Server Specs</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../rake-tasks">Rake Tasks</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../tools">Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Usage Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide">Cookbook Readme</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Appendix</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../appendix/terms-definitions">Terms & Definitions</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Feature Development Workflow</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1>Feature Development Workflow</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>Let's step through the feature development workflow covered earlier in this documentation.  This time, we'll cover each step in enough detail for you to fully accomplish the task with <a href="../tools">this set of tools</a>.</p>
+<p><em>Please note: This document as a whole is not a substitute for learning Chef Development.  What's covered in this doc is an overview of our current process.</em></p>
+<h2 id="workflow">Workflow</h2>
+<h3 id="1-write-feature-tests">1. Write feature tests</h3>
+<p>Read this first: <a href="../server-specs">Server Specs</a></p>
+<p>Then:</p>
+<ol>
+<li>Decide on the test type to write<ul>
+<li>Consider the test examples you just read about</li>
+<li>Tie the tests to the feature and the acceptance criteria / specifications</li>
+<li>Steps below will assume Server Spec</li>
+<li>Other types may be added</li>
+</ul>
+</li>
+<li>Decide whether the test/tests should be part of an existing test suite or a new one<ul>
+<li>If you decide to add a new test suite, you may run the task below to add a new server spec file:<ul>
+<li><code>rake add:spec name="Test Name" desc="Test Description"</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Write your tests<ul>
+<li>When you don't know how to test something yet, but know the specification, <a href="#">write pending test descriptions</a></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-clean-up-old-work">2. Clean up old work</h3>
+<p>Run <code>kitchen destroy</code> to clean up old work</p>
+<h3 id="3-create-a-test-box-and-provision-it-with-our-cookbook">3. Create a test box and provision it with our cookbook</h3>
+<p>Run <code>kitchen converge</code></p>
+<h3 id="4-run-all-tests-on-the-box">4. Run all tests on the box</h3>
+<p>Run <code>kitchen verify</code></p>
+<p>Review test results to determine what tests are not passing and what needs changed to make them pass.</p>
+<h3 id="5-use-community-cookbook-recipes-or-writeedit-our-own-in-order-to-add-functionality-which-meet-our-requirements">5. Use community cookbook recipes or write/edit our own in order to add functionality which meet our requirements</h3>
+<h4 id="-to-add-a-new-recipe-to-the-7-iron-cookbook-run-the-following">- To add a new recipe to the 7-Iron Cookbook run the following:</h4>
+<pre><code class="shell">rake add:recipe name=&quot;Recipe Name&quot;
+</code></pre>
+
+<h4 id="-to-add-a-new-community-cookbook-recipe">- To add a new community cookbook recipe:</h4>
+<ol>
+<li>Add the cookbook as a dependency in <code>metadata.rb</code></li>
+<li>Cookbook version numbers are desired but not required.</li>
+<li>Download new and updated cookbooks</li>
+<li>Run <code>berks update</code></li>
+</ol>
+<h4 id="-lint">- Lint</h4>
+<p>You can use the foodcritic lint tool on the cookbook by running:</p>
+<pre><code class="shell">rake style:chef
+</code></pre>
+
+<h4 id="add-recipes-to-run-list">Add Recipes to Run List</h4>
+<p>See  <a href="../..//cookbook-readme/#7-irondefault">7-Iron::default</a></p>
+<h3 id="6-re-provision">6. Re-provision</h3>
+<p>Run <code>kitchen converge</code></p>
+<p>Any changes to a recipe or new recipes will be converged into the box.  This is done through <a href="http://kitchen.ci/docs/getting-started/running-converge">kitchen converge</a>.</p>
+<p>Kitchen Converge incrementally adds changes to a provisioned Vagrant box.  This tool significantly speeds up our development process.  We do not have to wait for a full provision for every change we want to test.</p>
+<p>Note: Use kitchen converge during recipe development but make sure to test the final recipe on a fully clean instance.<br />
+There are times when developing with kitchen converge that you will get a passing test on a second or follow-up converge that did not pass after an initial run.  Usually this is due to the order of recipes during provision.</p>
+<p>Make sure you do your final testing on a clean (not previously converged) box.
+Use: <code>kitchen test</code> instead of <code>kitchen converge</code> and <code>kitchen verify</code></p>
+<h3 id="7-repeat-4-5-and-6-committing-iterative-changes-as-needed-until-complete">7. Repeat <code>4</code>, <code>5</code>, and <code>6</code> (committing iterative changes as needed) until complete</h3>
+<h3 id="8-test-with-kitchen-test">8. Test with Kitchen Test</h3>
+<p>Run: <code>kitchen test</code></p>
+<p>Kitchen test will destroy any previous states, start at a new state, and verify the box from scratch.</p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../server-specs" class="btn btn-neutral float-right" title="Server Specs"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../server-specs" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

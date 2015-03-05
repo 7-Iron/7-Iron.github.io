@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rake Tasks - 7-Iron Server Documentation</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 7-Iron Server Documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+        <span>User Guide for 7-Iron Server</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/tools">User Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/project-files">Manage Project Files</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/database-mysql">More Q&A - Database/MySQL</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/vagrant">More Q&A - Vagrant</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../user-guide/drupal">More Q&A - Drupal</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Contributor Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="..">Overview</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../feature-development">Feature Development Workflow</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../server-specs">Server Specs</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Rake Tasks</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#rake-tasks-list">Rake Tasks List</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../tools">Tools</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>7-Iron Cookbook Usage Guide</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide">Cookbook Readme</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../cookbook-guide/questions-answers">Questions & Answers</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Appendix</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../appendix/terms-definitions">Terms & Definitions</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Rake Tasks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h1>Rake Tasks for Development</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>If you have <a href="https://github.com/ruby/rake">Rake</a> installed then you can use the 7-Iron's Rake Tasks to assist in your development workflow.</p>
+<h2 id="rake-tasks-list">Rake Tasks List</h2>
+<p>To see a list of all Rake tasks run <code>rake la</code> from the top level of the 7-Iron project directory.</p>
+<p>The results will look something like this:</p>
+<pre><code class="shell">rake add:recipe               # Add new sk recipe file: Usage `rake add:recipe name=&quot;Recipe Name&quot;`
+rake add:spec                 # Add new spec file: Usage `rake add:spec name=&quot;Test Name&quot; desc=&quot;Test Description&quot;`
+rake build                    # Build 7-Iron Vagrant Box and put it in the build directory
+rake la                       # Lists all Rake tasks and descriptions
+rake lint                     # Run all style checks
+rake list                     # Lists all Rake tasks
+rake make:buildpaths          # Make build paths
+rake make:cookbooks           # Make Berks vendor cookbooks directory for packer build
+rake make:docs                # Make documentation
+rake make:docs_server         # Make documentation server
+rake make:ovf                 # Make virtualbox-ovf for packer to build from
+rake make:readme              # Make README.md
+rake packer:build             # Build from Packer template
+rake packer:inspect           # Inspect Packer template
+rake packer:validate          # Validate Packer template
+rake style:chef               # Run Chef style checks
+rake style:ruby               # Run Ruby style checks
+</code></pre>
+
+<p><em>Tip:</em>  <a href="http://turadg.aleahmad.net/2011/02/bash-completion-for-rake-tasks/">Add bash auto completion for rake</a></p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tools" class="btn btn-neutral float-right" title="Tools"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../server-specs" class="btn btn-neutral" title="Server Specs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../server-specs" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../tools" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>
