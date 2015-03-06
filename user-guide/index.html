@@ -55,8 +55,6 @@
                             
                                 <li><a class="toctree-l3" href="#-create-or-import-a-db">- Create or Import a DB</a></li>
                             
-                                <li><a class="toctree-l3" href="#-login-to-7-iron-to-use-drush-and-other-tools">- Login to 7-Iron to Use Drush and Other Tools</a></li>
-                            
                         
                             <li class="toctree-l2"><a href="#next-steps">Next Steps</a></li>
                             
@@ -195,46 +193,23 @@
 <h2 id="quickstart">Quickstart</h2>
 <h3 id="-deploy-your-site-files-to-7-iron">- Deploy your site files to 7-Iron</h3>
 <ol>
-<li>Edit your host machine's <code>hosts</code> file<sup id="fnref:use-ip"><a class="footnote-ref" href="#fn:use-ip" rel="footnote">1</a></sup> to use 7-Iron's URLs: <a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">GO</a></li>
 <li>Place the 7-Iron Vagrantfile in your project's <code>docroot</code> directory</li>
-<li>
-<p>In the Vagrantfile, uncomment the line below to use the default synced folder type
-    <code># config.vm.synced_folder sync_source, sync_target</code></p>
-<p>See: <a href="project-files#-sync-types">Sync Types</a> for other sync types.</p>
-</li>
-<li>
-<p>Run <code>vagrant up</code> in the directory you placed the Vagrantfile</p>
-</li>
-<li>Access your project's <code>docroot</code> via the following URL: http://7-iron.dev</li>
+<li>Run <code>vagrant up</code> in the directory you placed the Vagrantfile</li>
+<li>Access your project's <code>docroot</code> via the following URL: http://192.168.33.33/dev or via: http://7-Iron.dev if you have already <a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">edited you hosts file</a></li>
 </ol>
 <h3 id="-create-or-import-a-db">- Create or Import a DB</h3>
 <ul>
 <li>To create a db on 7-Iron see: <a href="database-mysql#how-do-i-create-a-new-db">How do I create a new db?</a></li>
 <li>To import a project database into 7-Iron, see: <a href="database-mysql#how-do-i-import-my-project-database">How do I import my project database?</a></li>
 </ul>
-<h3 id="-login-to-7-iron-to-use-drush-and-other-tools">- Login to 7-Iron to Use Drush and Other Tools</h3>
-<p>To login to the 7-Iron Server run:</p>
-<p><code>vagrant ssh</code></p>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
-<li>Read documentation for your version of 7-Iron at http://7-Iron.start</li>
+<li><a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">Edit your host machine's hosts file</a> to use 7-Iron's URLs</li>
+<li><a href="vagrant#how-do-i-get-the-7-iron-vagrantfile">Replace the default Vagrantfile with the 7-Iron Vagrantfile</a></li>
 <li>Change your <a href="project-files#-sync-types">sync type</a> to speed up file syncing</li>
-<li>Checkout the [Tools][tools.md] section to see what tools are available to you on 7-Iron.</li>
+<li>Checkout the <a href="tools">Tools</a> section to see what tools are available to you on 7-Iron.</li>
 <li>Read <a href="project-files">How to Manage Your Project Files with 7-Iron</a> for details about the different deploy/file share strategies you can use with 7-Iron.</li>
 </ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:use-ip">
-<p>If you cannot or do not want to edit your hosts file, you can still access 7-Iron with its IP address:</p>
-<ul>
-<li>http://http://192.168.33.33/dev/ for your dev site.</li>
-<li>http://192.168.33.33/ for 7-Iron documentation and tools.</li>
-</ul>
-<p><a class="footnote-backref" href="#fnref:use-ip" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
 
             </div>
           </div>

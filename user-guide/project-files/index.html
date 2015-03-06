@@ -62,21 +62,21 @@
                             <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
                             
                         
-                            <li class="toctree-l2"><a href="#1-no-synchronization">1. No Synchronization</a></li>
-                            
-                        
-                            <li class="toctree-l2"><a href="#2-vagrant-managed-synced-folders">2. Vagrant Managed Synced Folders</a></li>
+                            <li class="toctree-l2"><a href="#1-vagrant-managed-synced-folders">1. Vagrant Managed Synced Folders</a></li>
                             
                                 <li><a class="toctree-l3" href="#-sync-types">- Sync types</a></li>
                             
                                 <li><a class="toctree-l3" href="#-usage-scenarios">- Usage Scenarios</a></li>
                             
                         
-                            <li class="toctree-l2"><a href="#3-treating-7-iron-as-a-remote-server">3. Treating 7-Iron as a Remote Server</a></li>
+                            <li class="toctree-l2"><a href="#2-treating-7-iron-as-a-remote-server">2. Treating 7-Iron as a Remote Server</a></li>
                             
                                 <li><a class="toctree-l3" href="#-use-secure-copy-to-move-files-between-your-host-and-7-iron-server">- Use Secure Copy to move files between your host and 7-Iron Server</a></li>
                             
                                 <li><a class="toctree-l3" href="#-use-ides-or-other-software-to-sync-and-deploy-files">- Use IDEs or other Software to Sync and Deploy Files</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#3-no-synchronization">3. No Synchronization</a></li>
                             
                         
                         </ul>
@@ -207,21 +207,11 @@
 <p>Consider what files you want to deploy to 7-Iron as we cover ways to manage your project files with 7-Iron.</p>
 <p>Let's cover three ways to manage your project files with 7-Iron.  These include:</p>
 <ol>
-<li>No synchronization</li>
 <li>Vagrant managed synced folders</li>
 <li>Treating 7-Iron as a remote server</li>
+<li>No synchronization</li>
 </ol>
-<h2 id="1-no-synchronization">1. No Synchronization</h2>
-<p>By default, 7-Iron starts with no synchronization.</p>
-<p>This is useful if you would like to just test drive 7-Iron, or if you would like to checkout and manage your project code only on the 7-Iron Server and not on your host.</p>
-<p>Use cases include:</p>
-<ul>
-<li>A QA tester needs to check out and run a tagged version of a website</li>
-<li>A Merge Manager needs to review one or more branches of code before approving a pull request</li>
-<li>A automated test system needs to check out and run a series of BDD and Unit tests</li>
-</ul>
-<p>With this method just use 7-Iron from the command line and check out code as you would to any Unix based system.  You can turn on SSH key forwarding if you want to forward your SSH key from your host to 7-Iron.</p>
-<h2 id="2-vagrant-managed-synced-folders">2. Vagrant Managed Synced Folders</h2>
+<h2 id="1-vagrant-managed-synced-folders">1. Vagrant Managed Synced Folders</h2>
 <blockquote>
 <p>Synced folders enable Vagrant to sync a folder on the host machine to the guest machine, allowing you to continue working on your project's files on your host machine, but use the resources in the guest machine to compile or run your project.  -- <a href="https://docs.vagrantup.com/v2/synced-folders/index.html">VagrantUp.com</a></p>
 </blockquote>
@@ -234,9 +224,9 @@
 <li><a href="https://docs.vagrantup.com/v2/synced-folders/virtualbox.html">Virtual Box</a></li>
 </ul>
 <p>I recommend using Rsync for large projects, and NFS for most projects.  Please read the documentation in the links above for the type you'd like to use.</p>
-<p>Then, edit this section in the Vagrant file to uncomment and use your desired sync type:</p>
+<p>Then, edit this section in the Vagrantfile to uncomment your desired sync type and comment out the other sync types:</p>
 <pre><code># Uncomment the line below to use the default synced folder type (Virtual box).
-# config.vm.synced_folder sync_source, sync_target
+config.vm.synced_folder sync_source, sync_target
 
 # Unccoment the line below to use the nfs synced folder type
 # config.vm.synced_folder sync_source , sync_target, type: 'nfs'
@@ -281,7 +271,7 @@
 
 <p>And you may run your tests on 7-Iron as well as serve your web pages.</p>
 <p>Tip: Add <code>.vagrant</code> to your <code>.gitignore</code> file to keep from committing the directory.</p>
-<h2 id="3-treating-7-iron-as-a-remote-server">3. Treating 7-Iron as a Remote Server</h2>
+<h2 id="2-treating-7-iron-as-a-remote-server">2. Treating 7-Iron as a Remote Server</h2>
 <p>You can connect to 7-Iron via SSH on port 22 with the user name: <code>vagrant</code> and the password <code>vagrant</code>.</p>
 <h3 id="-use-secure-copy-to-move-files-between-your-host-and-7-iron-server">- Use Secure Copy to move files between your host and 7-Iron Server</h3>
 <p>From your host command line you can use <a href="http://en.wikipedia.org/wiki/Secure_copy">SCP</a> to move files from your host to 7-Iron, and from 7-Iron to your host.</p>
@@ -297,6 +287,15 @@
 <p>You can also use an SFTP tool <sup id="fnref:sftp-tool"><a class="footnote-ref" href="#fn:sftp-tool" rel="footnote">1</a></sup> or you IDE to develop your files locally and then sync/deploy them as needed to 7-Iron.</p>
 <p>You can connect to 7-Iron via SFTP on port 22 with the user name: <code>vagrant</code> and the password <code>vagrant</code>.</p>
 <p>If for example, you use the PHPStorm IDE, you can <a href="https://www.jetbrains.com/phpstorm/help/create-new-project-add-remote-server.html">add 7-Iron as a remote server</a> , then <a href="https://www.jetbrains.com/phpstorm/help/working-with-web-servers-copying-files.html">copy your files to 7-Iron</a>, and <a href="https://www.jetbrains.com/phpstorm/help/configuring-synchronization-with-a-web-server.html">keep them in sync</a>.</p>
+<h2 id="3-no-synchronization">3. No Synchronization</h2>
+<p>This mode is useful if you would like to just test drive 7-Iron, or if you would like to checkout and manage your project code only on the 7-Iron Server and not on your host.</p>
+<p>Use cases include:</p>
+<ul>
+<li>A QA tester needs to check out and run a tagged version of a website</li>
+<li>A Merge Manager needs to review one or more branches of code before approving a pull request</li>
+<li>A automated test system needs to check out and run a series of BDD and Unit tests</li>
+</ul>
+<p>With this method just use 7-Iron from the command line and check out code as you would to any Unix based system.  You can turn on SSH key forwarding if you want to forward your SSH key from your host to 7-Iron.</p>
 <div class="footnote">
 <hr />
 <ol>
