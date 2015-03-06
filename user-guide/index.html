@@ -51,10 +51,6 @@
                         
                             <li class="toctree-l2"><a href="#quickstart">Quickstart</a></li>
                             
-                                <li><a class="toctree-l3" href="#-deploy-your-site-files-to-7-iron">- Deploy your site files to 7-Iron</a></li>
-                            
-                                <li><a class="toctree-l3" href="#-create-or-import-a-db">- Create or Import a DB</a></li>
-                            
                         
                             <li class="toctree-l2"><a href="#next-steps">Next Steps</a></li>
                             
@@ -191,13 +187,21 @@
               <h1>User Guide Overview</h1>
 
 <h2 id="quickstart">Quickstart</h2>
-<h3 id="-deploy-your-site-files-to-7-iron">- Deploy your site files to 7-Iron</h3>
+<p>A. <a href="https://github.com/seanbuscay/7-Iron/releases/download/v0.0.1/Vagrantfile">Download the latest 7-Iron Vagrantfile</a> to your project's <code>docroot</code> directory.  </p>
+<p><em>TIP: Your project <code>docroot</code> is usually where your <code>index.php</code> or <code>index.html</code> is located.</em></p>
+<hr/>
+
+<p>B. Deploy your site files to 7-Iron.</p>
 <ol>
-<li>Place the 7-Iron Vagrantfile in your project's <code>docroot</code> directory</li>
 <li>Run <code>vagrant up</code> in the directory you placed the Vagrantfile</li>
-<li>Access your project's <code>docroot</code> via the following URL: http://192.168.33.33/dev or via: http://7-Iron.dev if you have already <a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">edited you hosts file</a></li>
+<li>View your project website at: <a href="http://192.168.33.33/dev">http://192.168.33.33/dev</a><ul>
+<li>Or <a href="http://7-Iron.dev">http://7-Iron.dev</a> if you have already <a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">edited you hosts file</a></li>
+</ul>
+</li>
 </ol>
-<h3 id="-create-or-import-a-db">- Create or Import a DB</h3>
+<hr/>
+
+<p>C. Create or Import a DB.</p>
 <ul>
 <li>To create a db on 7-Iron see: <a href="database-mysql#how-do-i-create-a-new-db">How do I create a new db?</a></li>
 <li>To import a project database into 7-Iron, see: <a href="database-mysql#how-do-i-import-my-project-database">How do I import my project database?</a></li>
@@ -205,7 +209,6 @@
 <h2 id="next-steps">Next Steps</h2>
 <ul>
 <li><a href="questions-answers#how-do-i-edit-my-hosts-file-to-use-the-7-iron-urls">Edit your host machine's hosts file</a> to use 7-Iron's URLs</li>
-<li><a href="vagrant#how-do-i-get-the-7-iron-vagrantfile">Replace the default Vagrantfile with the 7-Iron Vagrantfile</a></li>
 <li>Change your <a href="project-files#-sync-types">sync type</a> to speed up file syncing</li>
 <li>Checkout the <a href="tools">Tools</a> section to see what tools are available to you on 7-Iron.</li>
 <li>Read <a href="project-files">How to Manage Your Project Files with 7-Iron</a> for details about the different deploy/file share strategies you can use with 7-Iron.</li>
